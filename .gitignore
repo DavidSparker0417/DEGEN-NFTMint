@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# firebase
+.firebaserc
+firebase.json
+.firebase
+
+# others
+.yranrc
+yarn.lock
+yarn-error.log

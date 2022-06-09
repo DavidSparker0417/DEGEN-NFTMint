@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  background-image: 
+    url('/images/background.png');
+    /* linear-gradient(58deg, #22168d9a, hsla(230, 60%, 54%, 0.58)); */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Roboto Mono', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
