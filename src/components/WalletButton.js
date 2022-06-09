@@ -1,5 +1,5 @@
 import {Button} from "@mui/material"
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useWallet } from "../context/wallet";
 import { dsWalletTrimedAccount } from "../ds-lib/ds-web3";
 
@@ -17,12 +17,12 @@ export default function WalletButton() {
     setName(trimedAccount);
   }, [wallet.account]);
 
-  const handleClick = useCallback(()=> {
+  function handleClick() {
     if (wallet.account)
     wallet.disconnect();
     else 
       wallet.connect();
-  }, [wallet.account]);
+  }
 
   return (
     <Button 

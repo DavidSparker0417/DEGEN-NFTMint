@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { degenGetStatistics } from "../contracts/nft";
 import { RefreshGeneral } from "../redux/nft";
 import { useWallet } from "./wallet";
@@ -9,16 +9,17 @@ export function GlobalProvider({ children }) {
   const wallet = useWallet();
   const dispatch = useDispatch();
 
-  const fetchNftInfo = useCallback(async () => {
-    const degenInfo = await degenGetStatistics(wallet.provider);
-    // console.log("[DAVID] degenInfo = ", degenInfo);
-    dispatch(RefreshGeneral(degenInfo));
-  }, [wallet]);
-
   // timer for refreshing nft info
   useEffect(() => {
     console.log("[DAVID] +++++++++++++ Initial Loading ++++++++++ ");
     const ac = new AbortController();
+
+    async function fetchNftInfo () {
+      const degenInfo = await degenGetStatistics(wallet.provider);
+      // console.log("[DAVID] degenInfo = ", degenInfo);
+      dispatch(RefreshGeneral(degenInfo));
+    }
+
     const callRefreshNftInfo = async () => {
       fetchNftInfo().then(() => {
         if (ac.signal.aborted === false) {
@@ -29,7 +30,7 @@ export function GlobalProvider({ children }) {
 
     callRefreshNftInfo();
     return () => ac.abort();
-  }, []);
+  }, [dispatch, wallet]);
   
   return (
     <GlobalContext.Provider value={{}}>

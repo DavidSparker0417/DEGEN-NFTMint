@@ -29,7 +29,7 @@ export const WalletProvider = ({ children }) => {
       return true;
     const targetChain = "0x" + TARGET_NET.chainId.toString(16);
     return provider.chainId === targetChain;
-  }, [provider.chainId]);
+  }, [provider]);
 
   async function connect() {
     try {
