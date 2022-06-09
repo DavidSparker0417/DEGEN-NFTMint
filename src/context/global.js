@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect } from "react";
 import { degenGetStatistics } from "../contracts/nft";
 import { RefreshGeneral } from "../redux/nft";
 import { useWallet } from "./wallet";

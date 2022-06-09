@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { Box, Grid, TextField, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Box, Grid, Typography } from "@mui/material";
+import { useState } from "react";
 import DGButton from "../../../components/DGButton";
 import WalletButton from "../../../components/WalletButton";
 import { useWallet } from "../../../context/wallet";
