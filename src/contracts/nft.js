@@ -41,7 +41,6 @@ export async function degenMintNft(provider, account, price, amount) {
   console.log(`[DEGEN] minting :: price = ${price}, amount=${amount}`);
   const bnPrice = new BigNumber(price);
   const payment = bnPrice.multipliedBy(amount);
-  console.log(payment.toString());
   const transaction = contract.methods.mint(amount);
   await dsWeb3SendTransaction(provider, null, account, transaction, payment);
 }
